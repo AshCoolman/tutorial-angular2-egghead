@@ -1,9 +1,8 @@
 class TodoModel {
 	public status : string = 'started';
 	constructor (
-		status : string = '' 
+		public title : string = '' 
 	) {
-  		this.status = status;
 	}
 }
 
