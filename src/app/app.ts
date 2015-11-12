@@ -1,5 +1,6 @@
 import {bootstrap, Component, View} from 'angular2/angular2';
 import {TodoInput} from './todo-input';
+import {TodoService} from './todo-service';
 
 @Component({
 	selector: '	app'
@@ -18,4 +19,4 @@ import {TodoInput} from './todo-input';
 // decorators way to add behavior
 class App {} 
 
-bootstrap(App);
+bootstrap(App, [TodoService]);

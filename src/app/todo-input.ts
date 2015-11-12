@@ -1,4 +1,5 @@
 import {bootstrap, Component} from 'angular2/angular2';
+import {TodoService} from './todo-service';
 
 @Component({
 	selector: 'todo-input',
@@ -12,7 +13,14 @@ import {bootstrap, Component} from 'angular2/angular2';
 })
 
 export class TodoInput {
+	constructor (
+		/* public` adds to `this` */
+		public todoService:TodoService 
+	) {
+		console.log(todoService);
+	}
+	
 	onClick (value) {
-		console.log(value);
+		this.todoService.addTodo(value);
 	}
 }
