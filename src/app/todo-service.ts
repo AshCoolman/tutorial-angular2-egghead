@@ -1,9 +1,19 @@
 class TodoModel {
 	public status : string = 'started';
+	
 	constructor (
 		public title : string = '' 
 	) {
 	}
+	
+	notStatus() {
+		return (this.status !== 'started') ? 'started' : 'completed';
+	}
+	
+	toggle() {
+		this.status = this.notStatus(); 
+	}
+	
 }
 
 class TodoService {

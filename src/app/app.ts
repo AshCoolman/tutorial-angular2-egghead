@@ -19,6 +19,8 @@ import {TodoList} from './todo-list';
 }) 
 
 // decorators way to add behavior
-class App {} 
+class App {
+	
+} 
 
 bootstrap(App, [TodoService]);
