@@ -8,7 +8,7 @@ import {TodoService} from './todo-service';
 	template: `
 		<div>
 			<div *ng-for="#todo of todoService.todos">
-				{{todo}}
+				{{todo.status}}
 			</div>
 		</div>
 		`

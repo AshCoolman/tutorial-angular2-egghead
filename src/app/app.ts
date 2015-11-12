@@ -1,6 +1,6 @@
 import {bootstrap, Component, View} from 'angular2/angular2';
 import {TodoInput} from './todo-input';
-import {TodoService} from './todo-service';
+import {TodoService, TodoModel} from './todo-service';
 import {TodoList} from './todo-list';
 
 @Component({
