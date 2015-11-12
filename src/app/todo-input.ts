@@ -1,18 +1,23 @@
-import {bootstrap, Component} from 'angular2/angular2';
+import {bootstrap, Component, FORM_DIRECTIVES} from 'angular2/angular2';
 import {TodoService} from './todo-service';
 
 @Component({
 	selector: 'todo-input',
+	directives: [FORM_DIRECTIVES],
 	template: `
-		<span>
-			Input:
-			<input type="text" #log-me/>
-			<button (click)="onClick(logMe.value)">Log input</button>
-		</span>
+		<form (ng-submit)="doSubmit()">
+			<input
+				type="text"
+				[(ng-model)]="todoModel"
+				placeholder="(press ENTER to submit)"
+				>
+			<button type="submit">Manual submit</button>
+		</form>
 	`	
 })
 
 export class TodoInput {
+	todoModel : string;
 	constructor (
 		/* public` adds to `this` */
 		public todoService:TodoService 
@@ -20,7 +25,8 @@ export class TodoInput {
 		console.log(todoService);
 	}
 	
-	onClick (value) {
-		this.todoService.addTodo(value);
+	doSubmit () {
+		this.todoService.addTodo(this.todoModel);
+		this.todoModel = '';
 	}
 }
