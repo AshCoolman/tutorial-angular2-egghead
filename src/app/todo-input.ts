@@ -5,9 +5,14 @@ import {bootstrap, Component} from 'angular2/angular2';
 	template: `
 		<span>
 			Input:
-			<input type="text"/>
+			<input type="text" #log-me/>
+			<button (click)="onClick(logMe.value)">Log input</button>
 		</span>
 	`	
 })
 
-export class TodoInput {}
+export class TodoInput {
+	onClick (value) {
+		console.log(value);
+	}
+}
