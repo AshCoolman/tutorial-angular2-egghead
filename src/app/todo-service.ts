@@ -1,5 +1,8 @@
 class TodoModel {
-	public status : string = 'started';
+	static STARTED:string = 'started';
+	static COMPLETED:string = 'completed';
+	
+	public status : string = TodoModel.STARTED;
 	
 	constructor (
 		public title : string = '' 
@@ -7,7 +10,7 @@ class TodoModel {
 	}
 	
 	notStatus() {
-		return (this.status !== 'started') ? 'started' : 'completed';
+		return (this.status !== TodoModel.STARTED) ? TodoModel.STARTED : TodoModel.COMPLETED;
 	}
 	
 	toggle() {
@@ -24,7 +27,6 @@ class TodoService {
 	];
 	addTodo (value: TodoModel) {
 		this.todos.push(value);
-		console.log("todos:" + this.todos.length);
 	}
 }
 
