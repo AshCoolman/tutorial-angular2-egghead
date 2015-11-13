@@ -21,9 +21,9 @@ class TodoModel {
 
 class TodoService {
 	public todos: TodoModel[] = [
-		new TodoModel('1'),
-		new TodoModel('2'),
-		new TodoModel('3')
+		new TodoModel('11'),
+		new TodoModel('12'),
+		new TodoModel('13')
 	];
 	addTodo (value: TodoModel) {
 		this.todos.push(value);
