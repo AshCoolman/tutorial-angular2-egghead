@@ -19,7 +19,7 @@ import {HasFilter} from './has-filter';
 })
 // How would I bind to the text node? [(text-content)]="todo.title"
 export class TodoList {
-	public needle:string = '1';
+	needle:string = '1';
 	constructor(
 		public todoService:TodoService
 	) {
