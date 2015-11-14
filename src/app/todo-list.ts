@@ -1,17 +1,19 @@
-import {Component, NgFor, FORM_DIRECTIVES} from 'angular2/angular2';
+import {Component, NgFor} from 'angular2/angular2';
 import {TodoService} from './todo-service';
 import {TodoItemRenderer} from './todo-item-renderer';
 import {HasFilter} from './has-filter';
+import {FilterBy} from './filter-by';
 
 @Component({
 	selector: 'todo-list',
 	pipes: [HasFilter],
-	directives: [NgFor, FORM_DIRECTIVES, TodoItemRenderer],
+	directives: [NgFor, FilterBy, TodoItemRenderer],
 	template: `
-	Filter <input type="text" [(ng-model)]="needle">
+	
 	<div>
+		<filter-by #filter-by></filter-by>
 		<todo-item-render
-			*ng-for="#todo of todoService.todos | has : 'title' : needle"
+			*ng-for="#todo of todoService.todos | has:'title':filterBy.needle"
 			[todo]="todo">
 		</todo-item-render>
 	</div>
@@ -19,7 +21,7 @@ import {HasFilter} from './has-filter';
 })
 // How would I bind to the text node? [(text-content)]="todo.title"
 export class TodoList {
-	needle:string = '1';
+	
 	constructor(
 		public todoService:TodoService
 	) {

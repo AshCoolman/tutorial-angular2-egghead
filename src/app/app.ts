@@ -11,7 +11,7 @@ import {TodoList} from './todo-list';
 	directives: [TodoInput, TodoList],
 	template: `
 		<div> 
-			<h1>An app</h1>
+			<h1>App</h1>
 			<todo-input></todo-input>
 			<todo-list></todo-list>
 		</div>

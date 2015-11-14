@@ -1,4 +1,4 @@
-import {bootstrap, Component, FORM_DIRECTIVES} from 'angular2/angular2';
+import {Component, FORM_DIRECTIVES} from 'angular2/angular2';
 import {TodoService, TodoModel} from './todo-service';
 
 @Component({
@@ -6,13 +6,10 @@ import {TodoService, TodoModel} from './todo-service';
 	directives: [FORM_DIRECTIVES],
 	template: `
 		<div>
-			<p>
-				<button (click)="logModel()">Output</button>
-			</p>
 			<form (ng-submit)="doSubmit()">
 				<input
 					type="text"
-						[(ng-model)]="todoModel.status"
+						[(ng-model)]="todoModel.title"
 						placeholder="(press ENTER to submit)"
 					>
 			</form>
@@ -31,11 +28,5 @@ export class TodoInput {
 	doSubmit () {
 		this.todoService.addTodo(this.todoModel);
 		this.todoModel = new TodoModel('');
-	}
-	
-	logModel() {
-		this.todoService.todos.map(function(e) { 
-			console.log(e.status, e.title);	
-		});
 	}
 }

@@ -13,9 +13,9 @@
     "live-server": "^0.8.1",
     "typescript": "^1.6.2"
   },
-  "yieldify-yeoman": {
+  "yeoman-yieldify": {
     "angular2": {
-      "components": "/"
+      "components": "/src/app"
     }
   }
 }
