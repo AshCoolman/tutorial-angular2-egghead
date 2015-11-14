@@ -1,7 +1,8 @@
 import {Pipe} from "angular2/angular2"
 
 @Pipe({
-	name: 'has'
+	name: 'has',
+	pure: false
 })
 
 export class HasFilter {
