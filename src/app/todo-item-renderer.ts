@@ -16,6 +16,11 @@ import {TodoModel} from './todo-service';
 				[(text-content)]="todo.title"
 				>
 			</span>
+			<span 
+				[ng-class]="todo.status"
+				[(text-content)]="todo.action"
+				>
+			</span>
 			<button (click)="todo.toggle()">
 				{{'Set '+todo.notStatus()}}
 			</button>

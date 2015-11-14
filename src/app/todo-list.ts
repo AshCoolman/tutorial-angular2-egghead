@@ -8,20 +8,21 @@ import {FilterBy} from './filter-by';
 	selector: 'todo-list',
 	pipes: [HasFilter],
 	directives: [NgFor, FilterBy, TodoItemRenderer],
-	template: `
-	
-	<div>
-		<filter-by #filter-by></filter-by>
-		<todo-item-render
-			*ng-for="#todo of todoService.todos | has:'title':filterBy.needle"
-			[todo]="todo">
-		</todo-item-render>
-	</div>
-	`
+	template: `	
+<div>
+	<filter-by #filter-by></filter-by> {{filterBy.title}}
+	<todo-item-render
+		*ng-for="
+		#todo of todoService.todos
+		| has:['title', 'action']:filterBy
+		"
+		[todo]="todo">
+	</todo-item-render>
+</div>
+`
 })
 // How would I bind to the text node? [(text-content)]="todo.title"
 export class TodoList {
-	
 	constructor(
 		public todoService:TodoService
 	) {

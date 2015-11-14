@@ -5,18 +5,15 @@ import {Component, FORM_DIRECTIVES} from 'angular2/angular2';
     directives: [ FORM_DIRECTIVES],
     template: `
     <form>
-        Search ({{needle}}):
-        <input
-            value="12"
-            [(ng-model)]="needle"
-            >
+        <input [(ng-model)]="title" placeholder="Filter title">
+        <input [(ng-model)]="action" placeholder="Filter action">
     </form>
     `
 })
 
-export class FilterBy () {
-    public needle = "Initid";
+export class FilterBy {
+    public title :string;
+    public action : string;
     constructor() {
-        this.needle = 'In contructor';
     }
 }

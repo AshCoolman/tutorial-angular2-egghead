@@ -6,14 +6,19 @@ import {Pipe} from "angular2/angular2"
 })
 
 export class HasFilter {
-	transform(list, [field, needle]) {
-		let result = list.filter(function (e) {
-			console.log('Testing', field, needle)
-			return e[field].includes(needle);
-		});
-		if (result.length === 0) {
-			return list;
+	transform(list, [fields, obj]) {
+		// let [title, action] = fields;
+		if (obj) {
+			let result = list.filter(function (item) {
+				return fields.some(function (field) {
+					return item[field].includes(obj[field]);	
+				});
+			});
+			if (result.length !== 0) {
+				return result;
+			}
 		}
-		return result;
+		return list
+
 	}
 }
